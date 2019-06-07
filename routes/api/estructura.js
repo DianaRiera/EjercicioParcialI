@@ -29,13 +29,7 @@ router.get('/', (req, res, next)=>{
 });
 
 router.post('/', (req, res, next)=>{
-    var newElement = Object.assign(thingsStructure, req.body, {
-        "Clase": "",
-        "Sección": "",
-        "Cupos": 0,
-        "Campus": "",
-        "Docente": ""
-    });
+    var newElement = Object.assign(thingsStructure, req.body, {"id": new Date().getTime()});
     thingsCollection.push(newElement);
     res.status(200).json(newElement);
 });
